@@ -15,4 +15,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('whois', 'DomainController@index');
+Route::get('/domain/{phrase}', 'DomainController@getDomain')
+    ->where('phrase', '[^/]*');
