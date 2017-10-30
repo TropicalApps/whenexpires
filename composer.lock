@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "517dee141281325a3a837f64bca22fbc",
+    "content-hash": "188cff086216fd5fd5f296aa711a7e30",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -956,16 +956,16 @@
         },
         {
             "name": "phpwhois/phpwhois",
-            "version": "v4.2.5",
+            "version": "dev-package-upgrade",
             "source": {
                 "type": "git",
-                "url": "https://github.com/phpWhois/phpWhois.git",
-                "reference": "45f46482d8197ec18f5fff47d2b51d422af9c7a4"
+                "url": "https://github.com/TropicalApps/phpWhois.git",
+                "reference": "5e61955fdf5529dc6ca9c08837d700114aac23d4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpWhois/phpWhois/zipball/45f46482d8197ec18f5fff47d2b51d422af9c7a4",
-                "reference": "45f46482d8197ec18f5fff47d2b51d422af9c7a4",
+                "url": "https://api.github.com/repos/TropicalApps/phpWhois/zipball/5e61955fdf5529dc6ca9c08837d700114aac23d4",
+                "reference": "5e61955fdf5529dc6ca9c08837d700114aac23d4",
                 "shasum": ""
             },
             "require": {
@@ -981,7 +981,6 @@
                     "src/whois.utils.php"
                 ]
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-2.0"
             ],
@@ -1006,11 +1005,14 @@
             "description": "phpWhois - library for querying whois services and parsing results. Based on phpwhois.org",
             "homepage": "http://phpwhois.pw",
             "keywords": [
-                "php",
-                "phpwhois",
-                "whois"
+                "PHP",
+                "Whois",
+                "phpWhois"
             ],
-            "time": "2014-12-30T17:09:58+00:00"
+            "support": {
+                "source": "https://github.com/TropicalApps/phpWhois/tree/package-upgrade"
+            },
+            "time": "2017-10-30T14:36:32+00:00"
         },
         {
             "name": "psr/container",
@@ -3888,7 +3890,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "phpwhois/phpwhois": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

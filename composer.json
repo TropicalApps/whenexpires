@@ -9,8 +9,14 @@
         "fideloper/proxy": "~3.3",
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
-        "phpwhois/phpwhois": "^4.2"
+        "phpwhois/phpwhois": "dev-package-upgrade"
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/TropicalApps/phpWhois"
+        }
+    ],
     "require-dev": {
         "filp/whoops": "~2.0",
         "fzaninotto/faker": "~1.4",
