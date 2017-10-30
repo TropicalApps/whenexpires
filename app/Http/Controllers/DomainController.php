@@ -3,14 +3,29 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Repositories\Domain\DomainRepository as Domain;
 
 class DomainController extends Controller
 {
-    public function index()
+    protected $domain;
+    /**
+     * Constructor
+     *
+     * @param Article $article repository
+     */
+    public function __construct(Domain $domain)
     {
-        $whois = new \Whois();
-        $query = 'tropicalapps.com';
-        $result = $whois->lookup($query,false);
-        dd($result);
+        $this->domain = $domain;
+    }
+
+    /**
+     * Get Domain information
+     *
+     * @param  String $domainName Domain's Name
+     * @return Array             Request Data
+     */
+    public function getDomain($domainName)
+    {
+        return $this->domain->getDomainData($domainName);
     }
 }
