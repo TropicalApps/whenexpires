@@ -15,6 +15,10 @@
         {
             "type": "vcs",
             "url": "https://github.com/TropicalApps/phpWhois"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/michaeldyrynda/laravel-preset-tachyons"
         }
     ],
     "require-dev": {

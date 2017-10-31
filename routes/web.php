@@ -16,3 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('whois', 'DomainController@index');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
