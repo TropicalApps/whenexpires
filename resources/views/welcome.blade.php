@@ -11,14 +11,14 @@
 	</head>
 	<body class="w-100 roboto bg-white">
 		<nav class="db dt-l w-100 border-box pa3 ph5-l absolute">
-			<a class="db dtc-l v-mid mid-gray link dim w-100 w-25-l tc tl-l mb2 mb0-l" href="#" title="Home">
+			<a class="db dtc-l v-mid mid-gray link dim w-100 w-25-l tc tl-l mb2 mb0-l" href="{{ route('welcome') }}" title="Home">
 				<span class="uppercase tracked">whenexpires.com</span>
 			</a>
 			<div class="db dtc-l v-mid w-100 w-75-l tc tr-l">
-				<a class="link dim dark-gray f5-l dib mr3 mr4-l" href="#" title="Blog"><i class="fa fa-sign-in"></i> Sign In</a>
+				<a class="link dim dark-gray f5-l dib mr3 mr4-l" href="{{ route('login')}}" title="Blog"><i class="fa fa-sign-in"></i> Sign In</a>
 				<a class="link dim dark-gray f5-l dib mr3 mr4-l" href="#" title="Blog"><i class="fa fa-paper-plane"></i> Subscribe</a>
 				<a class="link dim dark-gray f5-l dib mr3 mr4-l" href="#" title="Press"><i class="fa fa-twitter-square"></i> Twitter</a>
-				<a class="link dim dark-gray f5-l dib" href="#" title="Contact"><i class="fa fa-github-square"></i> Source code</a>
+				<a class="link dim dark-gray f5-l dib" href="{{ config('social.accounts.project-source') }}" title="Contact"><i class="fa fa-github-square"></i> Source code</a>
 			</div>
 		</nav>
 		<main id="app">
@@ -32,7 +32,7 @@
 								</span>
 							</h3>
 							<h4 class="f3 fw1 georgia i center dt">Find out the expiration date of your domain.</h4>
-							<p class="f6 ttu tracked black-80 center dt">A <a href="https://github.com/tropicalapps" class="black" target="_blank" > TropicalApps</a>  Project</p>
+							<p class="f6 ttu tracked black-80 center dt">A <a href="{{ config('social.accounts.github') }}" class="black" target="_blank" > TropicalApps</a>  Project</p>
 						</div>
 					</header>
 					<div class="pa4-l n-mt-6">
@@ -49,7 +49,7 @@
 					<div class="pa4 ph7-l georgia center">
 						<h2>how does it work?</h2>
 						<p class="f5 f3-ns lh-copy justify georgia">
-							By entering the desired domain address an clicking in the "when to expire" button you'll get the information related o the expiration date of the domain.
+							By entering the desired domain address an clicking in the "when expire" button you'll get the information related o the expiration date of the domain. By the moment we only support gTLD site domains.
 						</p>
 
 						<img src="{{ asset('images/modal1.png') }}" alt="Hot does it work? - WhenExpires.com" class="mw-100 dt center">
@@ -66,7 +66,7 @@
 		</main>
 		<footer class="bg-near-black white-80 pv5 pv6-l ph4">
 			<p class="f6 center dt"><span class="dib mr4 mr5-ns">©{{ date('Y') }} TropicalApps</span>
-				<a class="link white-80 hover-light-purple" href="https://github.com/tropicalapps">GitHub</a> /
+				<a class="link white-80 hover-light-purple" href="{{ config('social.accounts.github') }}">GitHub</a> /
 			</p>
 		</footer>
 		<script type="text/javascript" src="{{ mix('js/app.js') }}"></script>

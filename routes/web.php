@@ -13,9 +13,9 @@
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
-Route::get('whois', 'DomainController@index');
+Route::get('whois', 'DomainController@getDomain');
 
 Auth::routes();
 

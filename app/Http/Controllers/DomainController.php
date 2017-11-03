@@ -6,7 +6,12 @@ use Illuminate\Http\Request;
 
 class DomainController extends Controller
 {
-    public function index()
+    /**
+     * Get Domain information of given domain name
+     *
+     * @return Json Response
+     */
+    public function getDomain()
     {
         $whois = new \Whois();
         $query = 'tropicalapps.com';
