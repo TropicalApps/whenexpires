@@ -24,8 +24,8 @@ class DomainController extends Controller
      * @param  String $domainName Domain's Name
      * @return Array             Request Data
      */
-    public function getDomain($domainName)
+    public function query(Request $request)
     {
-        return $this->domain->getDomainData($domainName);
+        return $this->domain->get($request->domain);
     }
 }

@@ -19,5 +19,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/domain/{phrase}', 'DomainController@getDomain')
-    ->where('phrase', '[^/]*');
+Route::get('/subscribe', 'SubscribeController@index')->name('subscribe');
+
+Route::post('/domain', 'DomainController@query')
