@@ -15,8 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
-Route::get('whois', 'DomainController@getDomain');
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/domain/{phrase}', 'DomainController@getDomain')
+    ->where('phrase', '[^/]*');
