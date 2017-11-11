@@ -7,5 +7,5 @@ namespace App\Repositories\Domain;
  */
 interface DomainRepository
 {
-    public function getDomainData($domainName);
+    public function get($domainName);
 }

@@ -13,7 +13,12 @@
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
-Route::get('/domain/{phrase}', 'DomainController@getDomain')
-    ->where('phrase', '[^/]*');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/subscribe', 'SubscribeController@index')->name('subscribe');
+
+Route::post('/domain', 'DomainController@query');

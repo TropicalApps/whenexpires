@@ -17,6 +17,49 @@ window.Vue = require('vue');
 
 Vue.component('example', require('./components/Example.vue'));
 
+Vue.component('modal', {
+    template: '#modal-template',
+    data() {
+        return {
+            isCompleted: false,
+            expires: '',
+            domainName: '',
+            link: '',
+            isValid: false,
+            status: false,
+            errorMessage: ''
+        };
+    },
+    mounted() {
+        if (this.$parent.domain.length > 1) {
+            axios.post('/domain', {
+                domain: this.$parent.domain,
+            }).then(response => {
+                if (response.data.status) {
+                    this.expires = response.data.date;
+                    this.link = `http://${response.data.domain}`;
+                    this.status = response.data.status;
+                } else {
+                    this.errorMessage = response.data.message;
+                }
+                this.domainName = response.data.domain;
+                this.isCompleted = true;
+            }).catch(error => {
+                console.error(error.response.data.errors);
+                this.errorMessage = error.response.data.errors.domain[0];
+                this.isCompleted = true;
+            });
+            this.isValid = true;
+        } else {
+            this.isValid = false;
+        }
+    },
+});
+
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    data: {
+        showModal: false,
+        domain: ''
+    }
 });

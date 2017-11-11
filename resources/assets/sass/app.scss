@@ -1,9 +1,15 @@
 
-// Fonts
-@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+// Tachyons
+@import "~tachyons-sass/tachyons";
 
-// Variables
-@import "variables";
+$fa-font-path: "~font-awesome/fonts";
+@import "~font-awesome/scss/font-awesome";
 
-// Bootstrap
-@import "~bootstrap-sass/assets/stylesheets/bootstrap";
+@import "_modal";
+@import "_hero";
+
+// Custom Styles
+.n-mt-6 {
+    margin-top: -6em;
+}
+
