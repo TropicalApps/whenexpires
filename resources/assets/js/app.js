@@ -44,8 +44,10 @@ Vue.component('modal', {
                 }
                 this.domainName = response.data.domain;
                 this.isCompleted = true;
-            }).catch(function (error) {
-                console.error(error);
+            }).catch(error => {
+                console.error(error.response.data.errors);
+                this.errorMessage = error.response.data.errors.domain[0];
+                this.isCompleted = true;
             });
             this.isValid = true;
         } else {

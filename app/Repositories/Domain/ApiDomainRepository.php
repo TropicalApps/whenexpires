@@ -12,10 +12,9 @@ use Carbon\Carbon;
 class ApiDomainRepository implements DomainRepository
 {
     protected $whoIs;
+
     /**
      * Constructor.
-     *
-     * @param Taxonomy $taxonomy
      */
     public function __construct()
     {
@@ -32,12 +31,13 @@ class ApiDomainRepository implements DomainRepository
     public function get($domain)
     {
         try {
-            $rawData = $this->whoIs->lookup($domain,false);
+            $domain = $this->formatDomain($domain);
+            $rawData = $this->whoIs->lookup($domain, false);
             // Check if domain is supported
             if (!empty($rawData['regrinfo']['registered']) && $rawData['regrinfo']['registered'] === 'unknown') {
                 return ['status' => false, 'message' => "Domain {$domain} is Unsupported", 'domain' => $domain];
             } elseif (!empty($rawData['regrinfo']['registered']) && $rawData['regrinfo']['registered'] === 'no') {
-                return ['status' => false, 'message' => "Domain {$$domain} not registered", 'domain' => $domain];
+                return ['status' => false, 'message' => "Domain {$domain} not registered", 'domain' => $domain];
             } elseif (!empty($rawData['regrinfo']['registered']) && $rawData['regrinfo']['registered'] == 'yes') {
                 $date = collect($rawData['rawdata'])->filter(function ($dataItem) {
                     return str_contains($dataItem, 'Registry Expiry Date');
@@ -56,6 +56,18 @@ class ApiDomainRepository implements DomainRepository
             logger('Something Wrong here '+ $e->getMessage());
             return ['status' => false, 'message' => 'Error'];
         }
-
+    }
+    /**
+     * Get domain name from URL
+     *
+     * @param  String $url URL
+     *
+     * @return String Domain name
+     */
+    public function formatDomain($url)
+    {
+        $pattern = '/^(?!:\/\/)(?:https?:\/\/)?(?:www\.)?(([a-zA-Z0-9-]+\.){0,5}[a-zA-Z0-9-][a-zA-Z0-9-]+\.[a-zA-Z]{2,64}?)$/';
+        preg_match($pattern, $url, $matches);
+        return $matches[1];
     }
 }

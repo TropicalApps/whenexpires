@@ -19,7 +19,7 @@
                                 <h3 class="f4">Error on domain name!</h3>
                                 <hr class="mw3 bb bw1 b--black-10">
                             </div>
-                            <p class="lh-copy measure center f4 black-70 mb4" v-text="errorMessage"></p>
+                            <p class="lh-copy measure center f4 black-70 mb4 tc" v-text="errorMessage"></p>
                         </div>
                     </div>
                     <div v-else-if="isValid" class="flex justify-center mb4">

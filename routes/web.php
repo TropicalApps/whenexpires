@@ -21,4 +21,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/subscribe', 'SubscribeController@index')->name('subscribe');
 
-Route::post('/domain', 'DomainController@query')
+Route::post('/domain', 'DomainController@query');
